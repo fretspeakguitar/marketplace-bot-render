@@ -1,0 +1,19 @@
+
+services:
+  - type: worker
+    name: marketplace-bot
+    env: python
+    plan: standard
+    buildCommand: "pip install -r requirements.txt && python3 -m playwright install"
+    startCommand: "python3 marketplace_bot.py"
+    envVars:
+      - key: FB_EMAIL
+        sync: false
+      - key: FB_PASSWORD
+        sync: false
+      - key: EMAIL_SENDER
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: EMAIL_RECEIVER
+        sync: false
