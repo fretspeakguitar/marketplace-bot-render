@@ -4,8 +4,10 @@ services:
     name: marketplace-bot
     env: python
     plan: standard
-    buildCommand: "pip install -r requirements.txt && python3 -m playwright install"
-    startCommand: "python3 marketplace_bot.py"
+    buildCommand: |
+      pip install -r requirements.txt
+      python3 -m playwright install
+    startCommand: python3 marketplace_bot.py
     envVars:
       - key: FB_EMAIL
         sync: false
